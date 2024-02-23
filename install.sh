@@ -77,7 +77,7 @@ installShadowsocks(){
     lastest_version=$(curl -H 'Cache-Control: no-cache' -s "$version_check" | grep 'tag_name' | cut -d\" -f4)
     echo "正在下载管理程序`colorEcho $blue $lastest_version`版本..."
     [[ $arch == x86_64 ]] && bin="shadowsocks-${lastest_version}.x86_64-unknown-linux-gnu.tar.xz" || bin="shadowsocks-${lastest_version}.arm-unknown-linux-gnu.tar.xz" 
-    curl -L "$download_url/$lastest_version/$bin" -o /tmp
+    curl -L "$download_url/$lastest_version/$bin" -o /tmp/$bin
     mkdir -p /usr/local/ss
     tar xvf /tmp/$bin -C /usr/local/ss
     chmod -R +x /usr/local/ss
