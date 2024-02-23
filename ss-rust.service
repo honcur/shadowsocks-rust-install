@@ -1,0 +1,15 @@
+[Unit]
+Description=ss-rust
+Documentation=https://github.com/honcur/shadowsocks-rust-install
+After=network.target network-online.target nss-lookup.target
+
+[Service]
+Type=simple
+StandardError=honcur
+ExecStart=/usr/local/ss/ssserver -c /usr/local/ss/config.json 
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target
