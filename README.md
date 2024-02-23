@@ -2,9 +2,9 @@
 
 ## 安装启动
 ###  a. 一键脚本安装
-```
 #安装/更新
 
+```
 source <(curl -sL https://raw.githubusercontent.com/honcur/shadowsocks-rust-install/main/install.sh)
 
 ```
