@@ -5,7 +5,7 @@
 ```
 #安装/更新
 
-source <(curl -sL https://raw.githubusercontent.com/honcur/shadowsocks-rust-install/main/install)
+source <(curl -sL https://raw.githubusercontent.com/honcur/shadowsocks-rust-install/main/install.sh)
 
 ```
 ###  b. 启动

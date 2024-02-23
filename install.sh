@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#定义操作变量, 0为否, 1为是
+remove=0
+
 download_url="https://github.com/shadowsocks/shadowsocks-rust/releases/download/"
 version_check="https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases/latest"
 service_url="https://raw.githubusercontent.com/honcur/shadowsocks-rust-install/main/ss-rust.service"
@@ -19,6 +23,24 @@ colorEcho(){
     color=$1
     echo -e "\033[${color}${@:2}\033[0m"
 }
+
+#######get params#########
+while [[ $# > 0 ]];do
+    key="$1"
+    case $key in
+        --remove)
+        remove=1
+        ;;
+        -h|--help)
+        help=1
+        ;;
+        *)
+                # unknown option
+        ;;
+    esac
+    shift # past argument or value
+done
+#############################
 
 checkSys() {
     #检查是否为Root
@@ -72,8 +94,17 @@ installShadowsocks(){
     colorEcho $green "安装shadowsocks程序成功!\n"
 }
 
+removeShadowsocks() {
+    rm -rf /usr/local/ss >/dev/null 2>&1
+    rm -f /etc/systemd/system/ss-rust.service >/dev/null 2>&1
+    systemctl daemon-reload
+    colorEcho ${green} "uninstall success!"
+}
+
 main(){
+    [[ ${remove} == 1 ]] && removeShadowsocks && return
     echo "正在安装shadowsocks-rust..." 
     checkSys
     installShadowsocks
 }
+main
