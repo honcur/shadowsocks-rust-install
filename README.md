@@ -8,7 +8,10 @@
 source <(curl -sL https://raw.githubusercontent.com/honcur/shadowsocks-rust-install/main/install.sh)
 
 ```
-###  b. 启动
+### b.更改密码
+将/usr/local/ss/config.josn文件中password值更改成你设置的密码.
+
+###  c. 启动
 
 启动服务: `systemctl start ss-rust`   
 
