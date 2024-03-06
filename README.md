@@ -20,4 +20,5 @@ source <(curl -sL https://raw.githubusercontent.com/honcur/shadowsocks-rust-inst
 ## 注意
 安装完shadowsocks后强烈建议开启BBR等加速: [Linux-NetSpeed](https://github.com/chiakge/Linux-NetSpeed)  
 
+journalctl ss-rust -f
 ## Thanks
