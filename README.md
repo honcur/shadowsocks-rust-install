@@ -9,7 +9,7 @@ source <(curl -sL https://raw.githubusercontent.com/honcur/shadowsocks-rust-inst
 
 ```
 ### b.更改密码
-将/usr/local/ss/config.josn文件中password值更改成你设置的密码.
+将/usr/local/ss/config.json文件中password值更改成你设置的密码.
 
 ###  c. 启动
 
